@@ -3,6 +3,8 @@
 *
 * Post on mobile view template.
 *
+* Modify the template to match theme used.
+*
 * @author 	Jeroen Sormani
 * @package 	Boombastis Sticky Post/Templates
 * @version 	1.0.0
@@ -76,7 +78,7 @@ if ( !defined( 'ABSPATH' ) ) exit; //Refuse direct access
 			}								
 			$next_page_link='';	
 		}
-		$i=1;
+		/*$i=1;
 		$bacajugainlink='';
 		foreach ($posts_array as $key => $value) {
 			if($GLOBALS['StickyID']!=$value->ID){
@@ -125,7 +127,7 @@ if ( !defined( 'ABSPATH' ) ) exit; //Refuse direct access
 				<div class="rec-article-title">Baca Juga</div>
 				<div data-advs-adspot-id="OTk5OjEzMTQ0" style="display:none"></div>'.
 				$bacajugainlink.'
-			</div>';
+			</div>';*/
 		$adslotin1='<div class="rectangle-ads">
 			<!-- Async AdSlot 3 for Ad unit "Mobile_Article_IndonesiaBanget" ### Size: [[300,250]] -->
 			<!-- Adslots refresh function: googletag.pubads().refresh([gptadslots[2]]) -->
@@ -157,7 +159,7 @@ if ( !defined( 'ABSPATH' ) ) exit; //Refuse direct access
 						$keywords[$i] = $keywords[$i].$adslotin1;
 						break;
 					case 2:
-						$keywords[$i] = $keywords[$i].$bacajugain;
+						#$keywords[$i] = $keywords[$i].$bacajugain;
 						break;
 					case 4:
 						$keywords[$i] = $keywords[$i].$adslotin2;

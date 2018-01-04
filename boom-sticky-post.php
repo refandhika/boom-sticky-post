@@ -18,9 +18,12 @@
 
 /* Sticky Post Main Creator */
 function boom_add_sticky_post($postid,$viewtype){
-	$GLOBALS['StickyID'] = $postid;
+	$idnow = get_the_ID();
+	if ( $idnow!=$postid ):
+		$GLOBALS['StickyID'] = $postid;
 
-	return boom_get_sticky_template($viewtype);
+		return boom_get_sticky_template($viewtype);
+	endif;
 }
 
 /**

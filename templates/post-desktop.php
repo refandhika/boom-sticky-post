@@ -3,6 +3,8 @@
 *
 * Post on desktop view template.
 *
+* Modify the template to match theme used.
+*
 * @author 	Jeroen Sormani
 * @package 	Boombastis Sticky Post/Templates
 * @version 	1.0.0
