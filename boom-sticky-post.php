@@ -9,6 +9,11 @@
 * License: 		Private
 * License URI: 	https://www.boombastis.com
 *
+*/
+
+/** 
+* Sticky Post Main Creator 
+*
 * @see boom_get_sticky_template()
 *
 * @param 	int 	$postid 				Post ID for sticky post.
@@ -16,13 +21,11 @@
 *
 */
 
-/* Sticky Post Main Creator */
 function boom_add_sticky_post($postid,$viewtype){
 	$idnow = get_the_ID();
 	if ( $idnow!=$postid ):
 		$GLOBALS['StickyID'] = $postid;
-
-		return boom_get_sticky_template($viewtype);
+		boom_get_sticky_template($viewtype);
 	endif;
 }
 
