@@ -65,6 +65,7 @@ function boom_sp_setting_init() {
 	add_settings_section('boom_sp_first_section', 'Post Options', 'boom_sp_post_callback', 'general_boom_sp');
 
 	add_settings_field('boom_sp_postid', 'Post ID', 'boom_sp_postid_callback', 'general_boom_sp', 'boom_sp_first_section');
+	add_settings_field('boom_sp_add_script', 'Additional Script', 'boom_sp_add_script_callback', 'general_boom_sp', 'boom_sp_first_section');
 }
 add_action( 'admin_init', 'boom_sp_setting_init' );
 
@@ -123,5 +124,25 @@ function boom_sp_postid_callback($args) {
 	<input name="boom_sp_options[boom_sp_postid]" id="boom_sp_postid" text="text" value="<?php echo isset( $options['boom_sp_postid'] ) ? esc_attr($options['boom_sp_postid']) : '';?>"/>
 	<?php 
 }
+
+function boom_sp_add_script_callback($args) {
+	$options = get_option('boom_sp_options');
+	?>
+	<textarea name="boom_sp_options[boom_sp_add_script]" id="boom_sp_add_script" cols="100" rows="8" text="text"><?php echo isset( $options['boom_sp_add_script'] ) ? esc_attr($options['boom_sp_add_script']) : '';?></textarea>
+	<?php 
+}
+
+/**
+* Add script for handling sticky post interaction
+*/
+function boom_sp_js(){
+	$options = get_option('boom_sp_options');
+
+	$plugin_dir = plugin_dir_url( __FILE__ );
+
+	wp_enqueue_script('box_interact', $plugin_dir.'js/assets.js', array('jquery'));
+    wp_localize_script('box_interact', 'pagedata', array( 'stickyid' => $options['boom_sp_postid'], 'title' => get_the_title($options['boom_sp_postid']), 'permalink' => get_the_permalink($options['boom_sp_postid']), 'addscript' => $options['boom_sp_add_script']));
+}
+add_action('wp_enqueue_scripts', 'boom_sp_js');
 
 /*EOF*/
