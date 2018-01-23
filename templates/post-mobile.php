@@ -5,7 +5,7 @@
 *
 * Modify the template to match theme used.
 *
-* @author 	Jeroen Sormani
+* @author 	Refa Andhika
 * @package 	Boombastis Sticky Post/Templates
 * @version 	1.0.0
 *
@@ -174,7 +174,7 @@ if ( !defined( 'ABSPATH' ) ) exit; //Refuse direct access
 			}
 		}
 		$isi=implode('</p>', $keywords);
-		$isi=preg_replace("(image\.boombastis\.com\/images)","d1e3uqeqtqrv1j.cloudfront.net/wp-content/uploads",$isi);
+		$isi=preg_replace("(image\.boombastis\.com\/images)","boombastis.s3.amazonaws.com/wp-content/uploads",$isi);
 		$isi = $isi.$terkaitin.$nextprev_p;
 		switch ($format) {
 			case 'general':	
